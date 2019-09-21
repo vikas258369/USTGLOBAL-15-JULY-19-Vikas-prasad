@@ -1,0 +1,57 @@
+<div class="container col-md-6 offset-3">
+   
+   <table class="table table-hover">
+       <thead>
+           <tr>
+               <th>Task Name</th>
+               <th>Edit</th>
+               <th>Update</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr *ngFor="let view of viewdata;index as i">
+               <td>{{i+1}}</td>
+               <td>{{view.taskname}}</td>
+               <td><button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" (click)="update(i)">Edit</button></td>
+               <td><button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+           </tr>
+       </tbody>
+   </table>
+   
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #taskdetail='ngForm' (ngSubmit)="updatedata(taskdetail.value)">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Add new Task</label>
+            <input type="text" class="form-control" name="taskname" #taskname="ngModel" required ngModel >
+          </div>
+          <div  class="alert alert-warning" *ngIf="taskname.invalid && taskname.touched">
+                  Please add task
+          </div>
+        
+          <button type="Submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>

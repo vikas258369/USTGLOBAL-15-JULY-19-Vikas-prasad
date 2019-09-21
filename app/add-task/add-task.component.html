@@ -1,0 +1,20 @@
+<div class="container col-md-6 offset-3">
+
+    
+    <form action="" method="POST" role="form" #Addtask='ngForm' (ngSubmit)="sendtask(Addtask.value)">
+        <legend>Add Task</legend>
+    
+        <div class="form-group">
+            <label for="taskname">Add Task</label>
+            <input type="text" class="form-control" name="taskname" #taskname="ngModel" ngModel placeholder="Input field" required >
+        </div>
+    
+        <div class="alert alert-warning" *ngIf="taskname.invalid && taskname.touched">
+            Please enter task
+        </div>
+        
+    
+        <button type="submit" class="btn btn-primary" [disabled]="taskname.invalid">Submit</button>
+    </form>
+    
+</div>
