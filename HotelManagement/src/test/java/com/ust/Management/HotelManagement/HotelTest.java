@@ -12,7 +12,7 @@ import javax.persistence.Query;
 
 class HotelTest implements Operations {
 
-	double price = 0;
+	double price = 0.00;
 	double p = 0.00;
 	public void showAll() {
 		Scanner sc = new Scanner(System.in);
@@ -51,7 +51,7 @@ class HotelTest implements Operations {
 		Scanner sc = new Scanner(System.in);
 		HotelBilling hb = new HotelBilling();
 		
-		 price = 0;
+		 
 		EntityManagerFactory emf = null;
 		EntityManager em = null;
 		EntityTransaction et = null;
@@ -71,17 +71,18 @@ class HotelTest implements Operations {
 
 				li.add(hbfind);
 				System.out.println(li);
-				
+				price = 0.00;
 				for (HotelBilling h : li) {
 					System.out.println(h.getItemCode() + " " + h.getFoodName() + " " + h.getPrice());
+					
 					price = price + h.getPrice();
 					
 				}
-				
+				System.out.println("************Total Bill:" + price + "***********");
 				System.out.println("do you want to add more:(0/1)");
 				x = Integer.parseInt(sc.nextLine());
 			} while (x == 1);
-			System.out.println("************Total Bill:" + price + "***********");
+			
 			System.out.println("...........yours order........");
 			
 		} catch (Exception e) {
@@ -89,7 +90,7 @@ class HotelTest implements Operations {
 		}
         
 
-		
+		p= p+price;
 	}
 
 	public void addFood() {
@@ -189,7 +190,7 @@ class HotelTest implements Operations {
 	}
 
 	public void totalBill() {
-      p= p+price;
+      
 	  System.out.println("Today Sales:"+p);		
 	}
 
