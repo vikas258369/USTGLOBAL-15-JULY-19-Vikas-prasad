@@ -1,0 +1,31 @@
+
+<div class="container col-md-6 offset-3">
+
+    <form action="" method="POST" role="form" #addtask="ngForm" (ngSubmit)="sendTask(addtask.value)">
+        <legend>Add Task</legend>
+    
+        <!-- <div class="form-group">
+            <label for="">Task id</label>
+            <input type="number" class="form-control" name="id" #id="ngModel" ngModel required placeholder="Input field">
+        </div> -->
+    
+        <div class="form-group">
+            <label for="">Task Name</label>
+            <input type="text" class="form-control" name="task" #task="ngModel" ngModel required placeholder="Input field">
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="">Start date</label>
+            <input type="date" class="form-control" name="task_start_date" #task_start_date="ngModel" ngModel required placeholder="Input field">
+        </div> -->
+        
+        <!-- <div class="form-group">
+            <label for="">End date</label>
+            <input type="date" class="form-control" name="task_end_date" #task_end_date="ngModel" ngModel required placeholder="Input field">
+        </div> -->
+        
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</div>

@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Task</th>
+            <th>start date</th>
+            <th>end date</th>
+            <th>End Task</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of TaskDetail;index as i">
+           <td>{{detail.id}}</td>
+           <td>{{detail.task}}</td>
+           <td>{{detail.task_start_dtate}}</td>
+           <td>{{detail.task_end_dtate}}</td>
+           <td><button class="btn btn-warning"  (click)="endtask(detail)">End task</button></td>
+           
+        </tr>
+    </tbody>
+</table>
